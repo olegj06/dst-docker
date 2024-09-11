@@ -1,0 +1,364 @@
+test-authentification-1  | 
+test-authentification-1  | ============================
+test-authentification-1  |     Authentication test
+test-authentification-1  | ============================
+test-authentification-1  | 
+test-authentification-1  | request done at "/permissions"
+test-authentification-1  | | username="alice"
+test-authentification-1  | | password="wonderland"
+test-authentification-1  | 
+test-authentification-1  | expected result = 200
+test-authentification-1  | actual result = 200
+test-authentification-1  | 
+test-authentification-1  | ==>  SUCCESS
+test-authentification-1  | 
+test-authentification-1  | 
+test-authentification-1  | 
+test-authentification-1  | ============================
+test-authentification-1  |     Authentication test
+test-authentification-1  | ============================
+test-authentification-1  | 
+test-authentification-1  | request done at "/permissions"
+test-authentification-1  | | username="bob"
+test-authentification-1  | | password="builder"
+test-authentification-1  | 
+test-authentification-1  | expected result = 200
+test-authentification-1  | actual result = 200
+test-authentification-1  | 
+test-authentification-1  | ==>  SUCCESS
+test-authentification-1  | 
+test-authentification-1  | 
+test-authentification-1  | 
+test-authentification-1  | ============================
+test-authentification-1  |     Authentication test
+test-authentification-1  | ============================
+test-authentification-1  | 
+test-authentification-1  | request done at "/permissions"
+api-1                    | INFO:     Started server process [7]
+api-1                    | INFO:     Waiting for application startup.
+api-1                    | INFO:     Application startup complete.
+api-1                    | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1                    | INFO:     10.5.0.11:39204 - "GET /permissions?username=alice&password=wonderland HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:50612 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:36108 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:39214 - "GET /permissions?username=bob&password=builder HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:50628 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:36124 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:39222 - "GET /permissions?username=alice&password=mandarine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.12:36130 - "GET /v1/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:50638 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:39232 - "GET /permissions?username=bob&password=clementine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.12:36146 - "GET /v2/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.13:50644 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     Started server process [7]
+api-1                    | INFO:     Waiting for application startup.
+api-1                    | INFO:     Application startup complete.
+api-1                    | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1                    | INFO:     10.5.0.11:46264 - "GET /permissions?username=alice&password=wonderland HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:46278 - "GET /permissions?username=bob&password=builder HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:46288 - "GET /permissions?username=alice&password=mandarine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.11:46304 - "GET /permissions?username=bob&password=clementine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.12:41278 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:41292 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:41308 - "GET /v1/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:41318 - "GET /v2/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.13:47362 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:47370 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:47376 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:47388 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     Started server process [7]
+api-1                    | INFO:     Waiting for application startup.
+api-1                    | INFO:     Application startup complete.
+api-1                    | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1                    | INFO:     10.5.0.11:32960 - "GET /permissions?username=alice&password=wonderland HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:32968 - "GET /permissions?username=bob&password=builder HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:32970 - "GET /permissions?username=alice&password=mandarine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.11:32984 - "GET /permissions?username=bob&password=clementine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.12:34440 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:34444 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:34456 - "GET /v1/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:34462 - "GET /v2/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.13:33736 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:33742 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:33750 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:33756 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     Started server process [7]
+api-1                    | INFO:     Waiting for application startup.
+api-1                    | INFO:     Application startup complete.
+api-1                    | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1                    | INFO:     10.5.0.13:45084 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:45088 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:45098 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:45100 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:34370 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:34384 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:34396 - "GET /v1/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:34410 - "GET /v2/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.11:45252 - "GET /permissions?username=alice&password=wonderland HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:45256 - "GET /permissions?username=bob&password=builder HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:45258 - "GET /permissions?username=alice&password=mandarine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.11:45272 - "GET /permissions?username=bob&password=clementine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     Started server process [7]
+api-1                    | INFO:     Waiting for application startup.
+api-1                    | INFO:     Application startup complete.
+api-1                    | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1                    | INFO:     10.5.0.11:42488 - "GET /permissions?username=alice&password=wonderland HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:42496 - "GET /permissions?username=bob&password=builder HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:42500 - "GET /permissions?username=alice&password=mandarine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.11:42512 - "GET /permissions?username=bob&password=clementine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.12:60178 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+test-authentification-1  | | username="alice"
+test-authentification-1  | | password="mandarine"
+test-authentification-1  | 
+test-authentification-1  | expected result = 403
+test-authentification-1  | actual result = 403
+test-authentification-1  | 
+test-authentification-1  | ==>  SUCCESS
+test-authentification-1  | 
+test-authentification-1  | 
+test-authentification-1  | 
+test-authentification-1  | ============================
+test-authentification-1  |     Authentication test
+test-authentification-1  | ============================
+test-authentification-1  | 
+test-authentification-1  | request done at "/permissions"
+test-authentification-1  | | username="bob"
+test-authentification-1  | | password="clementine"
+test-authentification-1  | 
+test-authentification-1  | expected result = 403
+test-authentification-1  | actual result = 403
+test-authentification-1  | 
+test-authentification-1  | ==>  SUCCESS
+test-authentification-1  | 
+test-authentification-1  | 
+test-authorization-1     | 
+test-authorization-1     | ============================
+test-authorization-1     |     Authorization test
+test-authorization-1     | ============================
+test-authorization-1     | 
+test-authorization-1     | request done at "/v1/sentiment"
+test-authorization-1     | | username="alice"
+test-authorization-1     | | password="wonderland"
+test-authorization-1     | | sentence='hello world'
+test-authorization-1     | 
+test-authorization-1     | expected result = 200
+test-authorization-1     | actual result = 200
+test-authorization-1     | 
+test-authorization-1     | ==>  SUCCESS
+test-authorization-1     | 
+test-authorization-1     | 
+test-authorization-1     | 
+test-authorization-1     | ============================
+test-authorization-1     |     Authorization test
+test-authorization-1     | ============================
+test-authorization-1     | 
+test-authorization-1     | request done at "/v2/sentiment"
+test-authorization-1     | | username="alice"
+test-authorization-1     | | password="wonderland"
+test-authorization-1     | | sentence="hello world"
+test-authorization-1     | 
+test-authorization-1     | expected result = 200
+test-authorization-1     | actual result = 200
+test-authorization-1     | 
+test-authorization-1     | ==>  SUCCESS
+test-authorization-1     | 
+test-authorization-1     | 
+test-authorization-1     | 
+test-authorization-1     | ============================
+test-authorization-1     |     Authorization test
+test-authorization-1     | ============================
+test-authorization-1     | 
+test-authorization-1     | request done at "/v1/sentiment"
+test-authorization-1     | | username="bob"
+test-authorization-1     | | password="builder"
+test-authorization-1     | | sentence="hello world"
+test-authorization-1     | 
+test-authorization-1     | expected result = 200
+test-authorization-1     | actual result = 200
+test-authorization-1     | 
+test-authorization-1     | ==>  SUCCESS
+test-authorization-1     | 
+test-authorization-1     | 
+test-authorization-1     | 
+test-authorization-1     | ============================
+test-authorization-1     |     Authorization test
+test-authorization-1     | ============================
+test-authorization-1     | 
+test-authorization-1     | request done at "/v2/sentiment"
+test-authorization-1     | | username="bob"
+test-authorization-1     | | password="builder"
+test-authorization-1     | | sentence="hello world"
+test-authorization-1     | 
+test-authorization-1     | expected result = 403
+test-authorization-1     | actual result = 403
+test-authorization-1     | 
+test-authorization-1     | ==>  SUCCESS
+test-authorization-1     | 
+test-authorization-1     | 
+api-1                    | INFO:     10.5.0.12:60194 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:60200 - "GET /v1/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:60202 - "GET /v2/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.13:50038 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:50040 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:50048 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:50064 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     Started server process [7]
+api-1                    | INFO:     Waiting for application startup.
+api-1                    | INFO:     Application startup complete.
+api-1                    | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1                    | INFO:     10.5.0.11:39556 - "GET /permissions?username=alice&password=wonderland HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:39564 - "GET /permissions?username=bob&password=builder HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:39576 - "GET /permissions?username=alice&password=mandarine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.11:39592 - "GET /permissions?username=bob&password=clementine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.13:44244 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:44254 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:44266 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:44274 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     Started server process [7]
+api-1                    | INFO:     Waiting for application startup.
+api-1                    | INFO:     Application startup complete.
+api-1                    | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1                    | INFO:     10.5.0.11:42936 - "GET /permissions?username=alice&password=wonderland HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:42950 - "GET /permissions?username=bob&password=builder HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:42956 - "GET /permissions?username=alice&password=mandarine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.11:42970 - "GET /permissions?username=bob&password=clementine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.13:46986 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:47002 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:47008 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:47014 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     Started server process [7]
+api-1                    | INFO:     Waiting for application startup.
+api-1                    | INFO:     Application startup complete.
+api-1                    | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1                    | INFO:     10.5.0.11:46748 - "GET /permissions?username=alice&password=wonderland HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:46764 - "GET /permissions?username=bob&password=builder HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:46766 - "GET /permissions?username=alice&password=mandarine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.11:46770 - "GET /permissions?username=bob&password=clementine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.13:47782 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:47798 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:47812 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:47816 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     Started server process [7]
+api-1                    | INFO:     Waiting for application startup.
+api-1                    | INFO:     Application startup complete.
+api-1                    | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1                    | INFO:     10.5.0.11:51772 - "GET /permissions?username=alice&password=wonderland HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:51786 - "GET /permissions?username=bob&password=builder HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:51794 - "GET /permissions?username=alice&password=mandarine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.11:51800 - "GET /permissions?username=bob&password=clementine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.13:47262 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:47264 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:47274 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:47280 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     Started server process [7]
+api-1                    | INFO:     Waiting for application startup.
+api-1                    | INFO:     Application startup complete.
+api-1                    | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1                    | INFO:     10.5.0.11:44646 - "GET /permissions?username=alice&password=wonderland HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:44660 - "GET /permissions?username=bob&password=builder HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:44676 - "GET /permissions?username=alice&password=mandarine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.11:44684 - "GET /permissions?username=bob&password=clementine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.12:58542 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:58554 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:58556 - "GET /v1/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:58568 - "GET /v2/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.13:33456 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:33468 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:33470 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:33474 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     Started server process [7]
+api-1                    | INFO:     Waiting for application startup.
+api-1                    | INFO:     Application startup complete.
+api-1                    | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1                    | INFO:     10.5.0.11:41198 - "GET /permissions?username=alice&password=wonderland HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:41200 - "GET /permissions?username=bob&password=builder HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:41210 - "GET /permissions?username=alice&password=mandarine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.11:41218 - "GET /permissions?username=bob&password=clementine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.12:34630 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:34642 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:34652 - "GET /v1/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:34656 - "GET /v2/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.13:44342 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:44358 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:44362 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:44370 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     Started server process [7]
+api-1                    | INFO:     Waiting for application startup.
+api-1                    | INFO:     Application startup complete.
+api-1                    | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1                    | INFO:     10.5.0.11:38044 - "GET /permissions?username=alice&password=wonderland HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:38048 - "GET /permissions?username=bob&password=builder HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.11:38052 - "GET /permissions?username=alice&password=mandarine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.11:38062 - "GET /permissions?username=bob&password=clementine HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.12:39070 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:39084 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:39092 - "GET /v1/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.12:39102 - "GET /v2/sentiment?username=bob&password=builder&sentence=hello+world HTTP/1.1" 403 Forbidden
+api-1                    | INFO:     10.5.0.13:46190 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:46192 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:46194 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+api-1                    | INFO:     10.5.0.13:46196 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+test-content-1           | 
+test-content-1           | ============================
+test-content-1           |     scoring test v1 
+test-content-1           | ============================
+test-content-1           | 
+test-content-1           | request done at "/v1/sentiment"
+test-content-1           | | username="alice"
+test-content-1           | | password="wonderland"
+test-content-1           | | sentence="life is beautiful"
+test-content-1           | 
+test-content-1           | expected result : positive
+test-content-1           | actual result = 0.5994
+test-content-1           | 
+test-content-1           | ==>  SUCCESS
+test-content-1           | 
+test-content-1           | 
+test-content-1           | 
+test-content-1           | ============================
+test-content-1           |     scoring test v1
+test-content-1           | ============================
+test-content-1           | 
+test-content-1           | request done at "/v1/sentiment"
+test-content-1           | | username="alice"
+test-content-1           | | password="wonderland"
+test-content-1           | | sentence="that sucks"
+test-content-1           | 
+test-content-1           | expected result : negative
+test-content-1           | actual result = -0.3612
+test-content-1           | 
+test-content-1           | ==>  SUCCESS
+test-content-1           | 
+test-content-1           | 
+test-content-1           | 
+test-content-1           | ============================
+test-content-1           |     scoring test v2 
+test-content-1           | ============================
+test-content-1           | 
+test-content-1           | request done at "/v2/sentiment"
+test-content-1           | | username="alice"
+test-content-1           | | password="wonderland"
+test-content-1           | | sentence="life is beautiful"
+test-content-1           | 
+test-content-1           | expected result : positive
+test-content-1           | actual result = 0.5994
+test-content-1           | 
+test-content-1           | ==>  SUCCESS
+test-content-1           | 
+test-content-1           | 
+test-content-1           | 
+test-content-1           | ============================
+test-content-1           |     scoring test v2
+test-content-1           | ============================
+test-content-1           | 
+test-content-1           | request done at "/v2/sentiment"
+test-content-1           | | username="alice"
+test-content-1           | | password="wonderland"
+test-content-1           | | sentence="that sucks"
+test-content-1           | 
+test-content-1           | expected result : negative
+test-content-1           | actual result = -0.3612
+test-content-1           | 
+test-content-1           | ==>  SUCCESS
+test-content-1           | 
+test-content-1           | 

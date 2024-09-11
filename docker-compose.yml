@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  api:
+    build: ./api
+    networks:
+      custom_net:
+        ipv4_address: 10.5.0.10
+        
+  test-authentification:
+    build: ./test-authentification
+    networks:
+      custom_net:
+        ipv4_address: 10.5.0.11
+    volumes:
+     - "./test-log:/usr/app/src/log"
+    depends_on:
+     - api
+      
+  test-authorization:
+    build: ./test-authorization
+    networks:
+      custom_net:
+        ipv4_address: 10.5.0.12
+    volumes:
+     - "./test-log:/usr/app/src/log" 
+    depends_on:
+     - test-authentification
+      
+      
+  test-content:
+    build: ./test-content
+    networks:
+      custom_net:
+        ipv4_address: 10.5.0.13
+    volumes:
+     - "./test-log:/usr/app/src/log" 
+    depends_on:
+     - test-authorization
+
+networks:
+  custom_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/24
+          gateway: 10.5.0.1
